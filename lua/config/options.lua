@@ -5,8 +5,8 @@
 local opt = vim.opt
 
 -- Timeout settings for key combinations
--- opt.timeoutlen = 250
--- opt.ttimeoutlen = 15
+opt.timeoutlen = 250
+opt.ttimeoutlen = 15
 
 -- Clipboard register
 -- opt.clipboard = "unnamedplus"
