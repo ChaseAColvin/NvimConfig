@@ -4,7 +4,7 @@
 
 -- ToggleTerm
 --  -- Import terminal type
-local Terminal = require("toggleterm.terminal").Terminal
+-- local Terminal = require("toggleterm.terminal").Terminal
 
 --  -- Close any open ToggleTerm
 vim.keymap.set("t", "<M-;>", "<Cmd>ToggleTermToggleAll<CR>", { desc = "Toggle terminal (From within terminal)" })
@@ -19,11 +19,9 @@ vim.keymap.set({ "n", "v" }, "<M-;>", "<Cmd>1ToggleTerm direction=float name=flo
 --   hidden = true,
 -- })
 --
--- function Default_terminal()
+-- vim.keymap.set({ "n", "v", "t" }, "<M-;>", function()
 --   default_terminal:toggle()
--- end
---
--- vim.keymap.set({ "n", "v", "t" }, "<M-;>", "<Cmd>lua Default_terminal()<CR>", { desc = "Toggle terminal" })
+-- end, { desc = "Toggle terminal" })
 
 -- Comment toggles
 vim.keymap.set("n", "<Leader>/", "<Cmd>normal >>0gcc<<<CR>", { desc = "Toggle comment" })
@@ -41,9 +39,28 @@ vim.keymap.set({ "n", "v" }, "<Leader>qq", "<Cmd>q!<CR>", { desc = "Force close 
 vim.keymap.set({ "n", "v" }, "<Leader>Q", "<Cmd>qa!<CR>", { desc = "Force close all windows" })
 
 -- Tab key behavior
-vim.keymap.set({ "n", "v" }, "<Tab>", "<Cmd>bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set({ "n", "v" }, "<S-Tab>", "<Cmd>bprev<CR>", { desc = "Previous buffer" })
+-- vim.keymap.set({ "n", "v" }, "<Tab>", "<Cmd>bnext<CR>", { desc = "Next buffer" })
+-- vim.keymap.set({ "n", "v" }, "<S-Tab>", "<Cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("i", "<S-Tab>", "<BS>", { desc = "Mimic detab behavior in insert mode" })
 
 -- File system tools
+-- -- Change Snacks file explorer open toggle to open/focus
+local explorer_open = false
+vim.keymap.set({ "n", "v" }, "<Leader>e", function()
+  if not explorer_open then
+    explorer_open = true
+    Snacks.explorer.open()
+  else
+    vim.cmd("windo 0")
+  end
+end, { desc = "Open/focus Snacks explorer" })
+vim.keymap.set({ "n", "v" }, "<Leader>E", function()
+  if explorer_open then
+    explorer_open = false
+    Snacks.explorer.open()
+  end
+end, { desc = "Close Snacks explorer" })
+
+-- -- Open Oil
+-- TODO: Make <c-o> close Oil as well
 vim.keymap.set("n", "<Leader>o", "<Cmd>Oil --float .<CR>", { desc = "Open Oil float" })
