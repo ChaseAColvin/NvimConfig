@@ -1,3 +1,0 @@
-return {
-  -- LSP keymaps
-}
