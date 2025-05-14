@@ -39,8 +39,11 @@ vim.keymap.set({ "n", "v" }, "<Leader>qq", "<Cmd>q!<CR>", { desc = "Force close 
 vim.keymap.set({ "n", "v" }, "<Leader>Q", "<Cmd>qa!<CR>", { desc = "Force close all windows" })
 
 -- Tab key behavior
--- vim.keymap.set({ "n", "v" }, "<Tab>", "<Cmd>bnext<CR>", { desc = "Next buffer" })
--- vim.keymap.set({ "n", "v" }, "<S-Tab>", "<Cmd>bprev<CR>", { desc = "Previous buffer" })
+-- -- Additional tab behavior configured in plugins/editor/supertab.lua
+vim.keymap.set("n", "<Tab>", "<Cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<Cmd>bprev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent selection" })
+vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Unindent selection" })
 vim.keymap.set("i", "<S-Tab>", "<BS>", { desc = "Mimic detab behavior in insert mode" })
 
 -- File system tools

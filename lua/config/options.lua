@@ -17,3 +17,4 @@ opt.ttimeoutlen = 15
 opt.relativenumber = false
 -- opt.tabstop = 2
 -- opt.shiftwidth = 2
+-- vim.o.winborder = "rounded"
