@@ -27,6 +27,10 @@ vim.keymap.set({ "n", "v" }, "<M-;>", "<Cmd>1ToggleTerm direction=float name=flo
 vim.keymap.set("n", "<Leader>/", "<Cmd>normal >>0gcc<<<CR>", { desc = "Toggle comment" })
 vim.keymap.set("v", "<Leader>/", "<Cmd>normal 0>gvgcgv<gv<CR>", { desc = "Toggle comment (Multi-line)" })
 
+-- Fold toggles
+vim.keymap.set("n", "<Leader>z", "za", { desc = "Toggle fold" })
+vim.keymap.set("n", "<Leader>Z", "za", { desc = "Toggle all folds" })
+
 -- Search tools
 vim.keymap.set({ "n", "v" }, "<Leader>G", LazyVim.pick("grep"), { desc = "Grep (Root Dir)" })
 
