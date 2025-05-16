@@ -9,9 +9,11 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
-      -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+
       on_colors = function(colors)
         colors.bg = "#040a1c"
+        colors.bg_dark = "#020614"
+        colors.bg_dark = "#000208"
       end,
     },
   },
